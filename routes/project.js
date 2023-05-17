@@ -16,7 +16,7 @@ projectRoutes.get("/project", (req, res) => {
     let db_connect = dbo.getDb();
     try {
         db_connect.collection("Projects")
-        .find().sort({date: -1}).toArray().then(result => {
+        .find().sort({idx: 1}).toArray().then(result => {
             res.json(result);
         });
     } catch(err) {
@@ -68,6 +68,7 @@ projectRoutes.post("/project/update/:id", (req, res) => {
     let myquery = { _id: new ObjectId(req.params.id) };
     let newvalues = {
     $set: {
+        idx: req.body.idx,
         name: req.body.name,
         description: req.body.description,
         tags: req.body.tags,
