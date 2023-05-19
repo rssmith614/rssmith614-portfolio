@@ -9,6 +9,14 @@ app.use(require("./routes/project"));
 app.use(require("./routes/workexp"));
 // get driver connection
 const dbo = require("./db/conn");
+
+const path = require("path");
+
+app.use(express.static(path.resolve(__dirname, "./portfolio/build")));
+
+app.get("*", function (req, res) {
+  res.sendFile(path.resolve(__dirname, "./portfolio/build", "index.html"));
+});
  
 app.listen(port, () => {
   // perform a database connection when server starts
