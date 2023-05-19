@@ -12,7 +12,7 @@ const dbo = require("../db/conn");
 const ObjectId = require("mongodb").ObjectId;
 
 // get all work experience
-workexpRoutes.get('/workexp', (req, res) => {
+workexpRoutes.get('/', (req, res) => {
     let db_connect = dbo.getDb();
     try {
         db_connect.collection("Workexp")

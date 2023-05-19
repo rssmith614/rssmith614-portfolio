@@ -1,2 +1,4 @@
 /node_modules/
+/portfolio/node_modules/
+/portfolio/build/
 .env

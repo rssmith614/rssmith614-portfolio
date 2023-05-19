@@ -12,7 +12,7 @@ const dbo = require("../db/conn");
 const ObjectId = require("mongodb").ObjectId;
 
 // get all projects
-projectRoutes.get("/project", (req, res) => {
+projectRoutes.get("/", (req, res) => {
     let db_connect = dbo.getDb();
     try {
         db_connect.collection("Projects")
