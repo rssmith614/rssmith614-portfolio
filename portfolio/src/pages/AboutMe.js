@@ -1,13 +1,24 @@
 import Card from '@mui/material/Card';
-import { Container, CardHeader, Typography, CardContent, Grid } from "@mui/material";
+import { Container, CardHeader, Typography, CardContent, Grid, Button } from "@mui/material";
+
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import FileDownloadIcon from '@mui/icons-material/FileDownload';
 
 function AboutMe() {
+  const onDownload = () => {
+    const link = document.createElement("a");
+    link.download = `Robert_Smith_Resume.pdf`;
+    link.href = "./Robert_Smith_Resume.pdf";
+    link.click();
+  };
+
   return (
     <Container >
       <Typography variant='h3' p={2}>
         About Me
       </Typography>
-      <Grid container spacing={4}>
+      <Grid container spacing={4} pb={4}>
         <Grid item>
           <Card elevation={ 5 }>
             <CardHeader
@@ -25,13 +36,13 @@ function AboutMe() {
         <Grid item>
           <Card elevation={ 5 }>
             <CardHeader
-              title="Things of Note" />
+              title="Recognition and Accomplishments" />
             <CardContent>
               <Typography variant="body1" paragraph>
                 During my tenure as a Student Technology Consultant with the UC Merced Office of Information Technology, I was particularly recognized for my awareness, communication skills, and excellent troubleshooting skills, and I was recommended for leadership positions.
               </Typography>
               <Typography variant="body1" paragraph>
-                In my graduating semester, I was nominated for Outstanding Graduating Student in the School of Engineering, reflecting my commitment and dedication to academic excellence.
+                In my graduating semester, I was nominated for Outstanding Graduating Student in the School of Engineering for my noteworthy commitment and dedication to academic excellence.
               </Typography>
             </CardContent>
           </Card>
@@ -44,6 +55,26 @@ function AboutMe() {
               <Typography variant="body1" paragraph>
                 I invite you to explore my various projects in detail and see my professional experience showcased in this portfolio, so that you can witness the breadth of my skills and experience, the depth of my technical expertise, and my passion for innovation and software development.
               </Typography>
+              <Typography variant="body1" paragraph>
+                Feel free to continue exploring via:
+              </Typography>
+              <Grid container spacing={2} justifyContent={"center"} alignItems={"center"} >
+                <Grid item>
+                  <Button variant="contained" href={"https://github.com/rssmith614"} startIcon={<GitHubIcon />}>
+                    GitHub
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button  variant="contained" href={"https://linkedin.com/in/rssmith614"} startIcon={<LinkedInIcon />}>
+                    LinkedIn
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button  variant="contained" onClick={onDownload} startIcon={<FileDownloadIcon />}>
+                    Resume
+                  </Button>
+                </Grid>
+              </Grid>
             </CardContent>
           </Card>
         </Grid>

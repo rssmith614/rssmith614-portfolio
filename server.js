@@ -5,8 +5,11 @@ require("dotenv").config({ path: "./config.env" });
 const port = process.env.PORT || 5001;
 app.use(cors());
 // app.use(express.json());
-app.use('/api/project', require("./routes/project"));
-app.use('/api/workexp', require("./routes/workexp"));
+
+const bodyParser = require("body-parser");
+
+app.use('/api/project', bodyParser.json(), require("./routes/project"));
+app.use('/api/workexp', bodyParser.json(), require("./routes/workexp"));
 // get driver connection
 const dbo = require("./db/conn");
 

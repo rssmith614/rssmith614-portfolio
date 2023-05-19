@@ -16,17 +16,24 @@ export default function ProjectTile({ project, onSelected }) {
     // height: 500,
   };
 
+  const mediaComp = project.thumbnail.split(".")[1] === "mp4" ? "video" : "img";
+
+  // console.log(project.thumbnail.split(".")[1] === "mp4")
+
   return (
     <CardActionArea onClick={handleClick}>
       <Card sx={cardStyle} elevation={10} >
         {project.thumbnail !== null ?
           <CardMedia
-            component="img"
-            max-height="50%"
+            component={mediaComp}
+            // max-height="50%"
             height="200"
             // objectFit="cover"
-            image={process.env.PUBLIC_URL + "/images/" + project.thumbnail}
+            src={process.env.PUBLIC_URL + "/images/" + project.thumbnail}
             alt={project.thumbnail}
+            controls
+            autoPlay
+            loop
           />
           :
           <></>
