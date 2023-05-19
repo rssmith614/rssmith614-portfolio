@@ -16,7 +16,7 @@ workexpRoutes.get('/workexp', (req, res) => {
     let db_connect = dbo.getDb();
     try {
         db_connect.collection("Workexp")
-        .find().toArray().then(result => {
+        .find().sort({end: -1}).toArray().then(result => {
             res.json(result);
         });
     } catch (err) {
