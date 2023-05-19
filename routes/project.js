@@ -25,7 +25,7 @@ projectRoutes.get("/", (req, res) => {
 });
 
 // add project
-projectRoutes.post("/project/add", (req, res) => {
+projectRoutes.post("/add", (req, res) => {
     let db_connect = dbo.getDb();
     let newobj = {
         name: req.body.name,
@@ -49,7 +49,7 @@ projectRoutes.post("/project/add", (req, res) => {
 });
 
 // get single project
-projectRoutes.get("/project/:id", (req, res) => {
+projectRoutes.get("/:id", (req, res) => {
     let db_connect = dbo.getDb();
     let myquery = { _id: new ObjectId(req.params.id) };
     try {
@@ -63,7 +63,7 @@ projectRoutes.get("/project/:id", (req, res) => {
 });
 
 // update project
-projectRoutes.post("/project/update/:id", (req, res) => {
+projectRoutes.post("/update/:id", (req, res) => {
     let db_connect = dbo.getDb();
     let myquery = { _id: new ObjectId(req.params.id) };
     let newvalues = {
@@ -87,7 +87,7 @@ projectRoutes.post("/project/update/:id", (req, res) => {
 });
 
 // delete project
-projectRoutes.delete("/project/:id", (req, res) => {
+projectRoutes.delete("/:id", (req, res) => {
     let db_connect = dbo.getDb();
     let myquery = { _id: new ObjectId(req.params.id) };
     try {

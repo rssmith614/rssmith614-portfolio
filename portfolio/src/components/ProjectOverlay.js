@@ -26,7 +26,7 @@ export default function ProjectOverlay({ project }) {
       {project.github !== '' ?
       <CardHeader 
         title={project.name}
-        subheader={project.date}
+        subheader={`${project.type} Project`}
         action={
           <IconButton aria-label="GitHub Repository Link" href={project.github} color="secondary">
             <GitHubIcon />
@@ -36,20 +36,22 @@ export default function ProjectOverlay({ project }) {
       :
       <CardHeader 
         title={project.name}
-        subheader={project.date}
+        subheader={`${project.type} Project`}
       />}
       <CardContent>
-        <Typography variant="body2" color="text.secondary">
-          {project.type} Project
-        </Typography>
-        <Typography variant="subtitle2" color="text.secondary" sx={{ pb: 3 }}>
+        <Typography variant="subtitle2" color="text.secondary">
           Tags: {project.tags}
         </Typography>
-        <Typography variant="body1">
+        <Typography variant="body2" color="text.secondary" sx={{ pb: 3 }}>
+          Tech Stack: {project.stack}
+        </Typography>
+        <Typography
+          variant="body1"
+          sx={{ maxHeight:300, overflowY:'scroll' }}>
           {project.description}
         </Typography>
         <Typography variant="body2" color="text.secondary" sx={{ pt:3 }}>
-          Tech Stack: {project.stack}
+          {project.date}
         </Typography>
       </CardContent>
     </Card>

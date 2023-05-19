@@ -25,7 +25,7 @@ workexpRoutes.get('/', (req, res) => {
 });
 
 // add workexp
-workexpRoutes.post("/workexp/add", (req, res) => {
+workexpRoutes.post("/add", (req, res) => {
     let db_connect = dbo.getDb();
     let newobj = {
         title: req.body.title,
@@ -45,7 +45,7 @@ workexpRoutes.post("/workexp/add", (req, res) => {
 });
 
 // get single workexp
-workexpRoutes.get("/workexp/:id", (req, res) => {
+workexpRoutes.get("/:id", (req, res) => {
     let db_connect = dbo.getDb();
     let myquery = { _id: new ObjectId(req.params.id) };
     try {
@@ -59,7 +59,7 @@ workexpRoutes.get("/workexp/:id", (req, res) => {
 });
 
 // update workexp
-workexpRoutes.post("/workexp/update/:id", (req, res) => {
+workexpRoutes.post("/update/:id", (req, res) => {
     let db_connect = dbo.getDb();
     let myquery = { _id: new ObjectId(req.params.id) };
     let newvalues = {
@@ -78,7 +78,7 @@ workexpRoutes.post("/workexp/update/:id", (req, res) => {
 });
 
 // delete workexp
-workexpRoutes.delete("/workexp/:id", (req, res) => {
+workexpRoutes.delete("/:id", (req, res) => {
     let db_connect = dbo.getDb();
     let myquery = { _id: new ObjectId(req.params.id) };
     try {

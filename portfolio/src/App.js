@@ -1,7 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
 
-import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
+import { Route, Routes, BrowserRouter as Router, Navigate } from "react-router-dom";
 
 import Directory from './components/Directory'
 
@@ -42,6 +42,7 @@ const App = () => {
       <Router>
         <Directory />
         <Routes>
+          <Route path="/" element={<Navigate replace to="/about"/>} />
           <Route exact path="/about" element={<AboutMe />} />
           <Route path="/gallery" element={<ProjectGallery />} />
           <Route path="/work" element={<WorkExperience />} />
