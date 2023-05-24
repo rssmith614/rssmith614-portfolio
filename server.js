@@ -10,6 +10,7 @@ const bodyParser = require("body-parser");
 
 app.use('/api/project', bodyParser.json(), require("./routes/project"));
 app.use('/api/workexp', bodyParser.json(), require("./routes/workexp"));
+app.use('/api/resume', bodyParser.json(), require('./routes/resume'));
 // get driver connection
 const dbo = require("./db/conn");
 

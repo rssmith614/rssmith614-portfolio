@@ -1,16 +1,30 @@
 import Card from '@mui/material/Card';
 import { Container, CardHeader, Typography, CardContent, Grid, Button } from "@mui/material";
 
+import axios from "axios";
+
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 
 function AboutMe() {
   const onDownload = () => {
-    const link = document.createElement("a");
-    link.download = `Robert_Smith_Resume.pdf`;
-    link.href = "./Robert_Smith_Resume.pdf";
-    link.click();
+    axios({
+      url: '/api/resume/latest',
+      method: 'GET',
+      responseType: 'blob',
+    }).then((res) => {
+      const href = URL.createObjectURL(res.data);
+      
+      const link = document.createElement("a");
+      link.download = `Robert_Smith_Resume.pdf`;
+      link.href = href;
+      document.body.appendChild(link);
+      link.click();
+
+      document.body.removeChild(link);
+      URL.revokeObjectURL(href);
+    });
   };
 
   return (
@@ -25,7 +39,7 @@ function AboutMe() {
               title="Who am I?" />
             <CardContent>
               <Typography variant="body1" paragraph>
-                Hello! Glad you could make it. I am Robert Smith, a dedicated and accomplished Computer Science and Engineering graduate from the University of California, Merced. With a GPA of 3.92, I have a strong academic foundation and a passion for developing innovative software solutions to various problems. Proficient in languages such as C++, Python, Java, and SQL, I possess a versatile skill set that enables me to tackle complex programming challenges.
+                Hello! Glad you could make it. I am Robert Smith, a dedicated and accomplished Computer Science and Engineering graduate from the University of California, Merced. With a GPA of 3.93, I have a strong academic foundation and a passion for developing innovative software solutions to various problems. Proficient in languages such as C++, Python, Java, and SQL, I possess a versatile skill set that enables me to tackle complex programming challenges.
               </Typography>
               <Typography variant="body1" paragraph>
                 Throughout my academic journey, I have completed coursework in various areas, including database systems, distributed systems, and human-computer interaction. These studies equipped me with a solid unerstanding of various aspects of software engineering, and have helped me develop leadership and communication skills in team-based projects.
