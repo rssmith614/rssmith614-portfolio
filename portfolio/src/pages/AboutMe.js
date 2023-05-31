@@ -1,5 +1,5 @@
 import Card from '@mui/material/Card';
-import { Container, CardHeader, Typography, CardContent, Grid, Button } from "@mui/material";
+import { Container, CardHeader, Typography, CardContent, Grid, Button, Paper } from "@mui/material";
 
 import axios from "axios";
 
@@ -7,32 +7,37 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 
+const onDownload = () => {
+  axios({
+    url: '/api/resume/latest',
+    method: 'GET',
+    responseType: 'blob',
+  }).then((res) => {
+    const href = URL.createObjectURL(res.data);
+    
+    const link = document.createElement("a");
+    link.download = `Robert_Smith_Resume.pdf`;
+    link.href = href;
+    document.body.appendChild(link);
+    link.click();
+
+    document.body.removeChild(link);
+    URL.revokeObjectURL(href);
+  });
+};
+
 function AboutMe() {
-  const onDownload = () => {
-    axios({
-      url: '/api/resume/latest',
-      method: 'GET',
-      responseType: 'blob',
-    }).then((res) => {
-      const href = URL.createObjectURL(res.data);
-      
-      const link = document.createElement("a");
-      link.download = `Robert_Smith_Resume.pdf`;
-      link.href = href;
-      document.body.appendChild(link);
-      link.click();
-
-      document.body.removeChild(link);
-      URL.revokeObjectURL(href);
-    });
-  };
-
   return (
-    <Container >
-      <Typography variant='h3' p={2}>
-        About Me
-      </Typography>
-      <Grid container spacing={4} pb={4}>
+    <Container sx={{ bgcolor: "background.default", p: 2}}>
+      <Paper
+        variant='title'
+      >
+        <Typography variant='h3' p={2}>
+          Robert Smith
+        </Typography>
+      </Paper>
+
+      <Grid container spacing={4} py={4} >
         <Grid item>
           <Card elevation={ 5 }>
             <CardHeader

@@ -1,10 +1,10 @@
-import React from 'react';
+import { useState } from 'react';
 
 import Card from '@mui/material/Card';
 import { CardHeader, CardMedia, CardActionArea, Typography, CardContent } from "@mui/material";
 
 export default function ProjectTile({ project, onSelected }) {
-  const [selected, setSelected] = React.useState(false);
+  const [selected, setSelected] = useState(false);
 
   const handleClick = () => {
     setSelected(!selected);

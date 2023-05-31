@@ -7,7 +7,6 @@ import { CircularProgress, Grid } from '@mui/material';
 import WorkExpTile from "./WorkExpTile";
 
 let url = "/api/workexp"
-// const axios = require("axios");
 
 export default function WorkExpGrid() {
   const [workExps, setWorkExps] = useState([]);
@@ -16,7 +15,9 @@ export default function WorkExpGrid() {
   useEffect(() => {
     async function getWorkExps() {
       setLoading(true);
-      axios.get(url)
+      axios.get(url
+        // , {baseURL: 'http://localhost:4444'}
+        )
       .then((res) => {
         setWorkExps(res.data);
         setLoading(false);
@@ -24,17 +25,6 @@ export default function WorkExpGrid() {
       .catch((err) => {
         window.alert(err);
       });
-
-      // if (!response.ok) {
-      //   setLoading(false);
-      //   const message = `An error occurred: ${response.statusText}`;
-      //   window.alert(message);
-      //   return;
-      // }
-
-      // const workExps = await response.json();
-      // setWorkExps(workExps);
-      // setLoading(false);
     }
 
     getWorkExps();
@@ -62,7 +52,7 @@ export default function WorkExpGrid() {
   )
 
   return (
-    <Grid container spacing={4} justifyContent={"center"} alignItems={"center"} >
+    <Grid container spacing={4} justifyContent={"center"} alignItems={"center"} py={4} >
         { workExpList() }
     </Grid>
   );

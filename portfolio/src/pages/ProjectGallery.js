@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ProjectGrid from '../components/ProjectGrid';
-import { Backdrop, Container, Slide, Typography } from '@mui/material';
+import { Backdrop, Container, Slide, Typography, Paper } from '@mui/material';
 import ProjectOverlay from "../components/ProjectOverlay";
 
 function ProjectGallery() {
@@ -19,9 +19,11 @@ function ProjectGallery() {
   return (
     <Container sx={{ bgcolor: "background.default", p: 2}}>
 
-      <Typography variant="h3" p={2}>
-        Project Gallery
-      </Typography>
+      <Paper variant='title'>
+        <Typography variant="h3" p={2}>
+          Project Gallery
+        </Typography>
+      </Paper>
 
       <ProjectGrid 
         onSelected={handleOverlaySelection} />
