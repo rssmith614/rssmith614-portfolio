@@ -16,7 +16,10 @@ export default function ProjectTile({ project, onSelected }) {
     // height: 500,
   };
 
-  const mediaComp = project.thumbnail.split(".")[1] === "mp4" ? "video" : "img";
+  var mediaComp = null;
+  if (project.thumbnail !== null) {
+    mediaComp = project.thumbnail.split(".")[1] === "mp4" ? "video" : "img";
+  }
 
   // console.log(project.thumbnail.split(".")[1] === "mp4")
 
