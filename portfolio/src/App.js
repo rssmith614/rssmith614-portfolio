@@ -14,17 +14,17 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#549fc0',
+      main: '#045286',
     },
     secondary: {
-      main: '#0056d6',
+      main: '#011623',
     },
     background: {
-      default: '#daeaf1',
-      paper: '#c8e0ea',
+      default: '#00060a',
+      paper: '#011623',
     },
     text: {
-      primary: '#070f13',
+      primary: '#ceeafd',
       secondary: '#387494',
     },
     info: {
@@ -41,7 +41,7 @@ const theme = createTheme({
           props: { variant: 'title' },
           style: {
             borderRadius: 0,
-            background: '#4394b6',
+            background: '#045286',
             textAlign: 'center',
           },
         },
@@ -50,14 +50,14 @@ const theme = createTheme({
     MuiBottomNavigation: {
       styleOverrides: {
         root: {
-          background: '#4394b6',
+          background: '#045286',
         }
       },
     },
     MuiBottomNavigationAction: {
       styleOverrides: {
         root: {
-          background: '#4394b6',
+          background: '#045286',
           color: '#0b181e',
           '&.Mui-selected': {
             color: '#97d5d9',
