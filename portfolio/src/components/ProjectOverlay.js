@@ -28,7 +28,7 @@ export default function ProjectOverlay({ project }) {
         title={project.name}
         subheader={`${project.type} Project`}
         action={
-          <IconButton aria-label="GitHub Repository Link" href={project.github} color="secondary">
+          <IconButton aria-label="GitHub Repository Link" href={project.github} color="primary">
             <GitHubIcon />
           </IconButton>
         }
